@@ -141,7 +141,7 @@
 
 
             <!-- all card container -->
-            <div class=" my-container bg-white shadow-sm justify-between ">
+            <div class=" my-container bg-white shadow-sm justify-between hidden">
 
                 <!-- all card section parent -->
                 <div id="issue-all-card"
@@ -157,8 +157,59 @@
                     <span class="loading loading-bars loading-xl"></span>
                 </div>
 
+            </div>
+
+
+            <!-- modal -->
+
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+            <dialog id="modal_card" class="modal modal-bottom sm:modal-middle">
+                <div id="modal_container" class="modal-box space-y-3">
+                    <div>
+                        <h2 class="font-semibold text-2xl mb-2">Fix broken image uploads</h2>
+                        <div class="flex  items-center gap-2">
+                            <p class="text-sm bg-green-600 px-2 py-[2px] text-white rounded-2xl">Opened</p>
+                            <span class="w-[8px] h-[8px]  rounded-full bg-gray-500 inline-block"></span>
+                            <p class="text-sm text-[#64748b]">Opened by Fahim Ahmed</p>
+                            <span class="w-[8px] h-[8px]  rounded-full bg-gray-500  inline-block"></span>
+                            <p class="text-sm text-[#64748b]">22/02/2026</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mt-auto">
+                        ${bugAndHelpLabels(issue.labels)}
+
+                    </div>
+                    <p class="text-[15px] text-[#64748b]">The navigation menu doesn't collapse properly on mobile
+                        devices. Need to fix the responsive behavior.
+                    </p>
+                    <div class="bg-[#f8fafc] flex">
+                        <div class="w-[50%]">
+                            <p class="text-[#64748b]">Assignee:</p>
+                            <p>Fahim Ahmed</p>
+                        </div>
+                        <di class="w-[50%]">
+                            <p class="text-[#64748b]">Priority:</p>
+                            <p>High</p>
+                        </di>
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+
+
+            <div class=" ">
 
             </div>
+
+
 
 
 
@@ -166,10 +217,13 @@
 
 
 
+
+
+
     </main>
 
 
-    <script src="./javaScript/script.js"></script>
+    <script src=" ./javaScript/script.js"></script>
 </body>
 
 </html>
