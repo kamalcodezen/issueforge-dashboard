@@ -1,0 +1,22 @@
+
+
+* {
+    font-family: "Geist", sans-serif;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: clamp(20rem, 90vw, 90rem);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+
+}
+
+
+.my-container {
+    width: 100%;
+    max-width: clamp(20rem, 90vw, 69.375rem);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+}

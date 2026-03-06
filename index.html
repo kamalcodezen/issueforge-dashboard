@@ -30,13 +30,73 @@
     <!-- icon  -->
     <link rel="shortcut icon" href="./assets/Aperture.png" type="image/x-icon">
 
-
-
     <title>Issueforge Dashboard</title>
 </head>
 
+
 <body>
-    <h1>hello world</h1>
+
+
+    <!-- login  -->
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content flex-col w-full max-w-[520px] mx-auto">
+
+            <div class=" card bg-base-100 w-full shadow-md">
+
+                <div class="text-center ">
+                    <img class="mx-auto my-6" src="./assets/github-logo.png" alt="">
+                    <h2 class="font-semibold text-2xl">GitHub Issues Tracker</h2>
+                    <p class="opacity-60">Sign in to manage your issues</p>
+                </div>
+
+                <div class="card-body ">
+                    <fieldset class="fieldset">
+
+                        <label class="label font-semibold text-neutral ">Username</label>
+                        <input id="user-name-input" type="text" class="input outline-none w-full"
+                            placeholder="Enter Username" value="admin" />
+
+                        <span class="text-[#773fff]">Default: admin</span>
+
+                        <label class="label font-semibold text-neutral">Password</label>
+                        <input id="user-pass-input" type="password" class="input outline-none w-full"
+                            placeholder="Enter Password" value="admin123" />
+
+                        <div><a class="link link-hover text-[#773fff]">Default: admin123</a></div>
+
+                        <button id="sign-in-btn" class="btn btn-primary mt-4">Sign In</button>
+
+                        <div class="flex items-center my-2 ">
+                            <div class="flex-grow border-t border-gray-300"></div>
+                            <span class="mx-2 text-gray-700">OR</span>
+                            <div class="flex-grow border-t border-gray-300"></div>
+                        </div>
+
+                        <div class="text-center">
+
+                            <p class="text-[13px] text-gray-500 mb-1">Demo Credentials:</p>
+
+                            <div class="bg-[#f8fafc] py-4">
+                                <p><span class="font-semibold text-[14px]">Username:</span><span
+                                        class="text-[14px] font-medium text-gray-700"> admin</span></p>
+
+                                <p><span class="font-semibold text-[14px]">Password:</span><span
+                                        class="text-[14px] font-medium text-gray-700"> admin123</span></p>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./javaScript/login.js"></script>
 </body>
+
 
 </html>
