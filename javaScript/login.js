@@ -9,5 +9,12 @@ const signInBtn = document.getElementById("sign-in-btn")
             return;
         }
 
+        const userPassword = document.getElementById("user-pass-input");
+        let userPassValue = userPassword.value.trim();
+
+        if (userPassValue === "" || userPassValue.length < 6) {
+            alert("Wrong Password");
+            return;
+        }
 
     });
