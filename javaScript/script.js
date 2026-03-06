@@ -47,9 +47,8 @@ function showFilterIssueBtn(id) {
 
     let btn = document.getElementById(id);
     btn.classList.add("bg-[#422ad5]", "text-white");
-    console.log(btn)
 
-}
+};
 
 
 
@@ -117,34 +116,10 @@ const displayAllIssuesData = (issues) => {
     });
 
 
-}
+};
 
 
-
-// // search issue function 
-// const searchBtnIssues = document.getElementById("search-issue-btn")
-//     .addEventListener("click", () => {
-
-//         const searchIssues = document.getElementById("search-issue");
-//         let issuesInputValue = searchIssues.value.trim();
-
-//         fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=all")
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 const allData = data.data
-//                 console.log(allData)
-//                 const issueSearch = allData.filter((data) => data.includes(issuesInputValue))
-
-//                 displayAllIssuesData(issueSearch)
-
-//             })
-
-
-
-//     })
-
-
-
+// filter btn display show in toggle
 function filterIssues(status) {
 
     if (status === "all") {
@@ -162,6 +137,32 @@ function filterIssues(status) {
     }
 
 }
+
+
+
+// search issue function button
+const searchBtnIssues = document.getElementById("search-issue-btn")
+    .addEventListener("click", () => {
+
+        const searchIssues = document.getElementById("search-issue");
+        let issuesInputValue = searchIssues.value.trim().toLowerCase();
+
+        fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${issuesInputValue}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const allData = data.data
+                // console.log(allData)
+                const issueSearch = allData.filter((issue) => issue.title.toLowerCase().includes(issuesInputValue))
+
+                displayAllIssuesData(issueSearch)
+
+            })
+
+
+    })
+
+
+
 
 allIssuesApi();
 showFilterIssueBtn('all-btn');
