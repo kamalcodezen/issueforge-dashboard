@@ -17,4 +17,15 @@ const signInBtn = document.getElementById("sign-in-btn")
             return;
         }
 
+        
+        if (userNameValue === "admin" && userPassValue === "admin123") {
+            // alert("login Success");
+            window.location.assign("home.html");
+            return;
+        } else {
+            alert("PLease Enter a valid Username or Password");
+            return;
+        }
+
+
     });
