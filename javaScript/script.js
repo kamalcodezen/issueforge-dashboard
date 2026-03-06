@@ -1,9 +1,12 @@
-
+// card container
 const allIssuesContainer = document.getElementById("issue-all-card");
+// filter btn 
+const allIssueBtn = document.getElementById("all-btn");
+const openIssueBtn = document.getElementById("open-btn");
+const closedIssueBtn = document.getElementById("close-btn");
+let issueALLCard = [];
 
-let allIssueBtn = document.getElementById("all-btn");
-let openIssueBtn = document.getElementById("open-btn");
-let closedIssueBtn = document.getElementById("close-btn");
+
 
 
 
@@ -12,7 +15,9 @@ const allIssuesApi = async () => {
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     const res = await fetch(url)
     const data = await res.json()
-    displayAllIssuesData(data.data);
+    issueALLCard = data.data
+
+    displayAllIssuesData(issueALLCard);
 
 }
 
@@ -26,19 +31,6 @@ const bugAndHelpLabels = (labels) => {
     return newArr.join(" ")
 
 }
-
-
-// function showFilterIssueBtn(id) {
-
-//   document.getElementById("all-btn").classList.remove("bg-[#422ad5]", "text-white");
-//   document.getElementById("open-btn").classList.remove("bg-[#422ad5]", "text-white");
-//   document.getElementById("close-btn").classList.remove("bg-[#422ad5]", "text-white");
-
-//   const btn = document.getElementById(id);
-//   btn.classList.add("bg-[#422ad5]", "text-white");
-
-// }
-
 
 
 
@@ -72,7 +64,7 @@ const displayAllIssuesData = (issues) => {
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
                             <div class="flex justify-between">
-                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed- Status .png" alt="">`}
+                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed-Status .png" alt="">`}
                               
                                 <p class="font-semibold text-sm px-4 py-1 rounded-2xl">
                          ${issue.priority === "high" ? `<span class="font-semibold text-sm px-4 py-1 bg-red-100 text-red-400 rounded-2xl"> ${issue.priority.toUpperCase()}</span>`
@@ -122,26 +114,51 @@ const displayAllIssuesData = (issues) => {
 
 }
 
-allIssuesApi();
 
 
+
+// // search issue function 
+// const searchBtnIssues = document.getElementById("search-issue-btn")
+//     .addEventListener("click", () => {
+
+//         const searchIssues = document.getElementById("search-issue");
+//         let issuesInputValue = searchIssues.value.trim();
+
+//         fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=all")
+//             .then((res) => res.json())
+//             .then((data) => {
+//                 const allData = data.data
+//                 console.log(allData)
+//                 const issueSearch = allData.filter((data) => data.includes(issuesInputValue))
+
+//                 displayAllIssuesData(issueSearch)
+
+//             })
+
+
+
+//     })
 
 
 
 function filterIssues(status) {
 
     if (status === "all") {
-        displayIssues(issues);
+        displayAllIssuesData(issueALLCard);
     }
 
     if (status === "open") {
-        const openIssues = issues.filter(issue => issue.status === "open");
-        displayIssues(openIssues);
+        const openIssues = issueALLCard.filter(issue => issue.status === "open");
+        displayAllIssuesData(openIssues);
     }
 
     if (status === "closed") {
-        const closedIssues = issues.filter(issue => issue.status === "closed");
-        displayIssues(closedIssues);
+        const closedIssues = issueALLCard.filter(issue => issue.status === "closed");
+        displayAllIssuesData(closedIssues);
     }
 
 }
+
+allIssuesApi();
+filterIssues("all");
+showFilterIssueBtn('all-btn');

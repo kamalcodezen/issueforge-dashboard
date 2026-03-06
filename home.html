@@ -64,10 +64,10 @@
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input type="search" placeholder="Search issues..." />
+                        <input id="search-issue" type="search" placeholder="Search issues..." />
                     </label>
 
-                    <button class="btn btn-active btn-primary text-[14px]">+ New Issue</button>
+                    <button id="search-issue-btn" class="btn btn-active btn-primary text-[14px]">+ New Issue</button>
                 </div>
 
 
@@ -86,19 +86,19 @@
             <div class="my-container flex gap-4 p-6 bg-white shadow-sm">
 
                 <div>
-                    <button onclick="showFilterIssueBtn('all-btn')" id="all-btn"
+                    <button onclick="showFilterIssueBtn('all-btn'); filterIssues('all')" id="all-btn"
                         class="btn  text-[14px] px-11 ">All</button>
 
                 </div>
 
                 <div>
-                    <button onclick="showFilterIssueBtn('open-btn')" id="open-btn"
+                    <button onclick="showFilterIssueBtn('open-btn'); filterIssues('open')" id="open-btn"
                         class="btn text-[14px] px-10">Open</button>
                 </div>
 
                 <div>
 
-                    <button onclick="showFilterIssueBtn('close-btn')" id="close-btn"
+                    <button onclick="showFilterIssueBtn('close-btn'); filterIssues('closed')" id="close-btn"
                         class="btn text-[14px] px-9 ">Closed</button>
 
                 </div>
