@@ -4,6 +4,10 @@ const allIssuesContainer = document.getElementById("issue-all-card");
 const allIssueBtn = document.getElementById("all-btn");
 const openIssueBtn = document.getElementById("open-btn");
 const closedIssueBtn = document.getElementById("close-btn");
+
+// count issue
+const countIssue = document.getElementById("issue-count");
+
 let issueALLCard = [];
 
 
@@ -34,7 +38,7 @@ const bugAndHelpLabels = (labels) => {
 
 
 
-// all filter btn
+// all filter btn toggle
 function showFilterIssueBtn(id) {
 
     allIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
@@ -47,13 +51,14 @@ function showFilterIssueBtn(id) {
 
 }
 
-//  showFilterIssueBtn()
 
 
 // all issue display show sob data show kora hlo total card
 const displayAllIssuesData = (issues) => {
 
     allIssuesContainer.innerHTML = "";
+
+    countIssue.innerText = issues.length;
 
     issues.forEach(issue => {
 
@@ -64,7 +69,7 @@ const displayAllIssuesData = (issues) => {
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
                             <div class="flex justify-between">
-                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed-Status .png" alt="">`}
+                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed- Status .png" alt="">`}
                               
                                 <p class="font-semibold text-sm px-4 py-1 rounded-2xl">
                          ${issue.priority === "high" ? `<span class="font-semibold text-sm px-4 py-1 bg-red-100 text-red-400 rounded-2xl"> ${issue.priority.toUpperCase()}</span>`
@@ -116,7 +121,6 @@ const displayAllIssuesData = (issues) => {
 
 
 
-
 // // search issue function 
 // const searchBtnIssues = document.getElementById("search-issue-btn")
 //     .addEventListener("click", () => {
@@ -160,5 +164,4 @@ function filterIssues(status) {
 }
 
 allIssuesApi();
-filterIssues("all");
 showFilterIssueBtn('all-btn');
