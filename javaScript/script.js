@@ -8,6 +8,7 @@ const closedIssueBtn = document.getElementById("close-btn");
 // count issue
 const countIssue = document.getElementById("issue-count");
 
+
 let issueALLCard = [];
 
 
@@ -16,14 +17,29 @@ let issueALLCard = [];
 
 // all issues data get api
 const allIssuesApi = async () => {
-    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
+    removeSpinner(true)
+    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url)
     const data = await res.json()
     issueALLCard = data.data
-
+    removeSpinner(false)
     displayAllIssuesData(issueALLCard);
 
 }
+
+// remove spinner function
+function removeSpinner(status) {
+
+    if (status == true) {
+        document.getElementById("spinner-container").classList.remove("hidden");
+        document.getElementById("issue-all-card").classList.add("hidden");
+    } else {
+        document.getElementById("spinner-container").classList.add("hidden");
+        document.getElementById("issue-all-card").classList.remove("hidden");
+    }
+
+}
+
 
 
 // new card label section array crad er bhetor label gulo array teke loop chaliye notun array baniye string a convert kore return korechi
@@ -44,6 +60,7 @@ function showFilterIssueBtn(id) {
     allIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
     openIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
     closedIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
+    removeSpinner(true)
 
     let btn = document.getElementById(id);
     btn.classList.add("bg-[#422ad5]", "text-white");
@@ -54,7 +71,7 @@ function showFilterIssueBtn(id) {
 
 // all issue display show sob data show kora hlo total card
 const displayAllIssuesData = (issues) => {
-
+    removeSpinner(true)
     allIssuesContainer.innerHTML = "";
 
     countIssue.innerText = issues.length;
@@ -114,27 +131,37 @@ const displayAllIssuesData = (issues) => {
         allIssuesContainer.append(div);
 
     });
-
+    removeSpinner(false)
 
 };
 
 
 // filter btn display show in toggle
 function filterIssues(status) {
+    removeSpinner(true);
 
-    if (status === "all") {
-        displayAllIssuesData(issueALLCard);
-    }
+    setTimeout(() => {
 
-    if (status === "open") {
-        const openIssues = issueALLCard.filter(issue => issue.status === "open");
-        displayAllIssuesData(openIssues);
-    }
+        if (status === "all") {
+            displayAllIssuesData(issueALLCard);
+        }
 
-    if (status === "closed") {
-        const closedIssues = issueALLCard.filter(issue => issue.status === "closed");
-        displayAllIssuesData(closedIssues);
-    }
+        if (status === "open") {
+
+            const openIssues = issueALLCard.filter(issue => issue.status === "open");
+            displayAllIssuesData(openIssues);
+
+        }
+
+        if (status === "closed") {
+            const closedIssues = issueALLCard.filter(issue => issue.status === "closed");
+            displayAllIssuesData(closedIssues);
+        }
+
+        removeSpinner(false);
+
+
+    }, 400)
 
 }
 
@@ -146,16 +173,17 @@ const searchBtnIssues = document.getElementById("search-issue-btn")
 
         const searchIssues = document.getElementById("search-issue");
         let issuesInputValue = searchIssues.value.trim().toLowerCase();
-
+        removeSpinner(true);
         fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${issuesInputValue}`)
+
             .then((res) => res.json())
             .then((data) => {
                 const allData = data.data
-                // console.log(allData)
+
                 const issueSearch = allData.filter((issue) => issue.title.toLowerCase().includes(issuesInputValue))
 
-                displayAllIssuesData(issueSearch)
-
+                displayAllIssuesData(issueSearch);
+                removeSpinner(false);
             })
 
 
