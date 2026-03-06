@@ -81,9 +81,32 @@
     <!-- main area start -->
     <main>
         <!-- filter all button section -->
-        <section>
+        <!-- total all button section  -->
+        <section class=" pt-[clamp(2rem,5vw,3.75rem)] mb-4">
+            <div class="my-container flex gap-4 p-6 bg-white shadow-sm">
+
+                <div>
+                    <button onclick="showFilterIssueBtn('all-btn')" id="all-btn"
+                        class="btn  text-[14px] px-11 ">All</button>
+
+                </div>
+
+                <div>
+                    <button onclick="showFilterIssueBtn('open-btn')" id="open-btn"
+                        class="btn text-[14px] px-10">Open</button>
+                </div>
+
+                <div>
+
+                    <button onclick="showFilterIssueBtn('close-btn')" id="close-btn"
+                        class="btn text-[14px] px-9 ">Closed</button>
+
+                </div>
+
+            </div>
 
         </section>
+
 
 
         <!-- all card section -->
