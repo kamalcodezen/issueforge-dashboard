@@ -27,6 +27,21 @@ const allIssuesApi = async () => {
 
 }
 
+
+// all filter btn toggle
+function showFilterIssueBtn(id) {
+
+    allIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
+    openIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
+    closedIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
+    removeSpinner(true)
+
+    let btn = document.getElementById(id);
+    btn.classList.add("bg-[#422ad5]", "text-white");
+
+};
+
+
 // remove spinner function
 function removeSpinner(status) {
 
@@ -42,6 +57,9 @@ function removeSpinner(status) {
 
 
 
+
+
+
 // new card label section array crad er bhetor label gulo array teke loop chaliye notun array baniye string a convert kore return korechi
 const bugAndHelpLabels = (labels) => {
 
@@ -51,21 +69,6 @@ const bugAndHelpLabels = (labels) => {
     return newArr.join(" ")
 
 }
-
-
-
-// all filter btn toggle
-function showFilterIssueBtn(id) {
-
-    allIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
-    openIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
-    closedIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
-    removeSpinner(true)
-
-    let btn = document.getElementById(id);
-    btn.classList.add("bg-[#422ad5]", "text-white");
-
-};
 
 
 
