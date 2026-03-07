@@ -145,7 +145,7 @@ const bugAndHelpLabels = (labels) => {
 // all issue display show sob data show kora hlo total card
 const displayAllIssuesData = (issues) => {
     removeSpinner(true)
-    console.log(issues)
+    // console.log(issues)
     allIssuesContainer.innerHTML = "";
 
     countIssue.innerText = issues.length;
