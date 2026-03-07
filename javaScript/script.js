@@ -133,12 +133,33 @@ function displayShowModal(card) {
 // new card label section array crad er bhetor label gulo array teke loop chaliye notun array baniye string a convert kore return korechi
 const bugAndHelpLabels = (labels) => {
 
-    let newArr = labels.map((label) =>
-        `<span class="font-semibold text-[10px] px-2 py-[2px] rounded-2xl border ${label === "bug" ? "bg-red-100 text-red-400" : label === "help wanted" ? "bg-[#fff6d1] text-[#f59e0b]" : "bg-[#defce8] text-[#00a96e]"}">${label.toUpperCase()} </span>`);
+    let newArr = labels.map((label) => {
 
-    return newArr.join(" ")
+        let icon = "";
 
-}
+        if (label === "bug") {
+            icon = `<i class="fa-solid fa-bug"></i>`;
+        }
+
+        if (label === "help wanted") {
+            icon = `<i class="fa-solid fa-handshake"></i>`;
+        }
+
+        if (label === "enhancement") {
+            icon = `<i class="fa-solid fa-wand-magic-sparkles"></i>`;
+        }
+
+        return `<span class="flex items-center gap-1 font-semibold text-[10px] px-2 py-[2px] rounded-2xl border
+                      ${label === "bug" ? "bg-red-100 text-red-400" :
+                label === "help wanted" ? "bg-[#fff6d1] text-[#f59e0b]" :
+                    "bg-[#defce8] text-[#00a96e]"}"> ${icon} ${label.toUpperCase()} </span>  `;
+
+
+    });
+
+    return newArr.join(" ");
+
+};
 
 
 
@@ -168,7 +189,7 @@ const displayAllIssuesData = (issues) => {
                     ? `<span class="font-semibold text-sm px-4 py-1 bg-[#fff6d1] text-[#f59e0b] rounded-2xl">${issue.priority.toUpperCase()}</span>`
                     : `<span class="font-semibold text-sm px-4 py-1 bg-[#eeeff2] text-[#abb1bb] rounded-2xl">${issue.priority.toUpperCase()}</span>`}
                                      </p>
-                            </div>
+                     </div>
                             <!--  Fix Navigation Menu  -->
                               <div class="min-h-[40px]">
                                   <p class="text-md font-semibold cursor-pointer">${issue.title}</p>
