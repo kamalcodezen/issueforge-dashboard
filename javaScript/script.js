@@ -20,13 +20,16 @@ let issueALLCard = [];
 
 // all issues data get api
 const allIssuesApi = async () => {
-    removeSpinner(true)
-    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
-    const res = await fetch(url)
-    const data = await res.json()
+    removeSpinner(true);
+
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const data = await res.json();
+
     issueALLCard = data.data;
-    removeSpinner(false)
+
     displayAllIssuesData(issueALLCard);
+
+    removeSpinner(false);
 
 }
 
@@ -121,10 +124,10 @@ function displayShowModal(card) {
                               <div class="w-[50%] space-y-2">
                                   <p class="text-[#64748b]">Priority:</p>
                                    <p class="text-sm px-3 py-[2px] text-white inline-block rounded-2xl ${card.priority === "high"
-                                       ? "bg-red-600"
-                                         : card.priority === "medium"
-                                         ? "bg-yellow-500"
-                                            : "bg-gray-500"}">
+            ? "bg-red-600"
+            : card.priority === "medium"
+                ? "bg-yellow-500"
+                : "bg-gray-500"}">
                                            ${card.priority.toUpperCase()}
                                            </p>
                                                                                                      </div>
@@ -200,7 +203,7 @@ const displayAllIssuesData = (issues) => {
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
                             <div class="flex justify-between">
-                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed-Status .png" alt="">`}
+                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed-Status.png" alt="">`}
                               
                                 <p class="font-semibold text-sm px-4 py-1 rounded-2xl">
                          ${issue.priority === "high" ? `<span class="font-semibold text-sm px-4 py-1 bg-red-100 text-red-400 rounded-2xl"> ${issue.priority.toUpperCase()}</span>`
