@@ -120,8 +120,14 @@ function displayShowModal(card) {
               
                               <div class="w-[50%] space-y-2">
                                   <p class="text-[#64748b]">Priority:</p>
-                                  <p class="text-sm bg-red-600 px-3 py-[2px] text-white rounded-2xl w-fit font-semibold">${card.priority.toUpperCase()}</p>
-                              </div>
+                                   <p class="text-sm px-3 py-[2px] text-white inline-block rounded-2xl ${card.priority === "high"
+                                       ? "bg-red-600"
+                                         : card.priority === "medium"
+                                         ? "bg-yellow-500"
+                                            : "bg-gray-500"}">
+                                           ${card.priority.toUpperCase()}
+                                           </p>
+                                                                                                     </div>
                           </div>
               
                           <div class="modal-action">
@@ -189,7 +195,7 @@ const displayAllIssuesData = (issues) => {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="allActiveCard(${issue.id})" id="issue-card" class=" h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
+        <div onclick="allActiveCard(${issue.id})"  class="issue-card h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
 
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->

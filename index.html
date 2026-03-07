@@ -87,8 +87,15 @@
 
                         <div><a class="link link-hover text-[#773fff]">Default: admin123</a></div>
 
-                        <button id="sign-in-btn" class="btn text-white bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500 
-                                      hover:opacity-90 transition mt-4 rounded-md">Sign In</button>
+                        <button id="sign-in-btn" class="btn flex gap-2 items-center justify-center text-white
+                                 bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500
+                                 hover:opacity-90 transition mt-4 rounded-md">
+
+                            <span id="btn-text">Sign In</span>
+
+                            <span id="btn-spinner" class="loading loading-spinner loading-sm hidden"></span>
+
+                        </button>
 
                         <div class="flex items-center my-2 ">
                             <div class="flex-grow border-t border-gray-300"></div>
@@ -110,9 +117,14 @@
 
                         </div>
 
+
                     </fieldset>
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
 
@@ -120,6 +132,7 @@
 
 
     <script src="./javaScript/login.js"></script>
+
 </body>
 
 

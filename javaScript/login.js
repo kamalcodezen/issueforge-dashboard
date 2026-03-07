@@ -1,31 +1,31 @@
-const signInBtn = document.getElementById("sign-in-btn")
-    .addEventListener("click", () => {
+document.getElementById("sign-in-btn").addEventListener("click", () => {
 
-        const userName = document.getElementById("user-name-input");
-        let userNameValue = userName.value.trim().toLowerCase();
+    const userName = document.getElementById("user-name-input").value.trim().toLowerCase();
+    const userPass = document.getElementById("user-pass-input").value.trim();
 
-        if (userNameValue === "" || !/^[a-z]+$/.test(userNameValue)) {
-            alert("Invalid Username");
-            return;
-        }
+    const btn = document.getElementById("sign-in-btn");
+    const spinner = document.getElementById("btn-spinner");
+    const text = document.getElementById("btn-text");
 
-        const userPassword = document.getElementById("user-pass-input");
-        let userPassValue = userPassword.value.trim();
+    if (userName === "admin" && userPass === "admin123") {
 
-        if (userPassValue === "" || userPassValue.length < 6) {
-            alert("Wrong Password");
-            return;
-        }
+        spinner.classList.remove("hidden");
+        text.innerText = "Signing in...";
+        btn.disabled = true;
 
-        
-        if (userNameValue === "admin" && userPassValue === "admin123") {
-            // alert("login Success");
-            window.location.assign("home.html");
-            return;
-        } else {
-            alert("Please Enter a valid Username or Password");
-            return;
-        }
+        setTimeout(() => {
 
+            spinner.classList.add("hidden");
+            text.innerText = "Success";
 
-    });
+        }, 1500);
+
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 2000);
+
+    } else {
+        alert("Invalid Username or Password");
+    }
+
+});
