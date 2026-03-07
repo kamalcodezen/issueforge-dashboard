@@ -34,13 +34,23 @@ const allIssuesApi = async () => {
 // all filter btn toggle
 function showFilterIssueBtn(id) {
 
-    allIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
-    openIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
-    closedIssueBtn.classList.remove("bg-[#422ad5]", "text-white")
+
+    allIssueBtn.classList.remove(
+        "bg-gradient-to-r", "from-purple-600", "via-purple-500", "to-blue-500", "text-white"
+    );
+
+    openIssueBtn.classList.remove(
+        "bg-gradient-to-r", "from-purple-600", "via-purple-500", "to-blue-500", "text-white"
+    );
+
+    closedIssueBtn.classList.remove(
+        "bg-gradient-to-r", "from-purple-600", "via-purple-500", "to-blue-500", "text-white"
+    );
+
     removeSpinner(true)
 
     let btn = document.getElementById(id);
-    btn.classList.add("bg-[#422ad5]", "text-white");
+    btn.classList.add("bg-gradient-to-r", "from-purple-600", "via-purple-500", "to-blue-500", "text-white");
 
 };
 
@@ -113,7 +123,8 @@ function displayShowModal(card) {
               
                           <div class="modal-action">
                               <form method="dialog">
-                                  <button class="btn border-none btn-primary">Close</button>
+                                  <button class="btn bg-gradient-to-r  from-purple-600 via-purple-500 to-blue-500 
+                                      hover:opacity-90 transition text-white px-7 rounded-md">Close</button>
                               </form>
                           </div>
               

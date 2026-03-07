@@ -52,19 +52,43 @@
                 <div class="card-body ">
                     <fieldset class="fieldset">
 
+                        <!-- <input id="user-name-input" type="text" class="input outline-none w-full rounded-md"
+                            placeholder="Enter Username" value="admin" /> -->
                         <label class="label font-semibold text-neutral ">Username</label>
-                        <input id="user-name-input" type="text" class="input outline-none w-full"
-                            placeholder="Enter Username" value="admin" />
+                        <div class="p-[2px] rounded-md border border-gray-300 
+                                           focus-within:bg-gradient-to-r 
+                                           focus-within:from-purple-600 
+                                           focus-within:via-purple-500 
+                                           focus-within:to-blue-500">
+
+                            <input id="user-name-input" type="text"
+                                class="w-full rounded-md outline-none px-3 py-2 bg-white" placeholder="Enter Username"
+                                value="admin" />
+
+                        </div>
 
                         <span class="text-[#773fff]">Default: admin</span>
 
                         <label class="label font-semibold text-neutral">Password</label>
-                        <input id="user-pass-input" type="password" class="input outline-none w-full"
-                            placeholder="Enter Password" value="admin123" />
+                        <div class="p-[2px] rounded-md border border-gray-300 
+                                           focus-within:bg-gradient-to-r 
+                                           focus-within:from-purple-600 
+                                           focus-within:via-purple-500 
+                                           focus-within:to-blue-500">
+
+                            <input id="user-pass-input" type="password"
+                                class="w-full rounded-md outline-none px-3 py-2 bg-white" placeholder="Enter Password"
+                                value="admin123" />
+
+                        </div>
+
+                        <!-- <input id="user-pass-input" type="password" class="input outline-none w-full rounded-md"
+                            placeholder="Enter Password" value="admin123" /> -->
 
                         <div><a class="link link-hover text-[#773fff]">Default: admin123</a></div>
 
-                        <button id="sign-in-btn" class="btn btn-primary mt-4">Sign In</button>
+                        <button id="sign-in-btn" class="btn text-white bg-gradient-to-r from-purple-600 via-purple-500 to-blue-500 
+                                      hover:opacity-90 transition mt-4 rounded-md">Sign In</button>
 
                         <div class="flex items-center my-2 ">
                             <div class="flex-grow border-t border-gray-300"></div>
