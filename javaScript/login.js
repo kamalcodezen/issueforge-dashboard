@@ -23,7 +23,7 @@ const signInBtn = document.getElementById("sign-in-btn")
             window.location.assign("home.html");
             return;
         } else {
-            alert("PLease Enter a valid Username or Password");
+            alert("Please Enter a valid Username or Password");
             return;
         }
 

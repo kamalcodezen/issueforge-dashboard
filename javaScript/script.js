@@ -85,16 +85,19 @@ function displayShowModal(card) {
 
     const div = document.createElement("div")
     div.innerHTML = `
-                        <div class="space-y-6">
+                        <div class="space-y-6 border-[2px] border-opacity-100  rounded-md p-4 ${card.status === "closed" ? "border-[#a855f7]" : "border-[#22b780]"}">
 
                           <div>
                               <h2 class="font-semibold text-2xl mb-2">${card.title}</h2>
               
-                              <div class="flex items-center gap-2">
-                                  <p class="text-sm bg-green-600 px-3 py-[2px] text-white rounded-2xl font-semibold">${card.status}</p>
-                                  <span class="w-[8px] h-[8px] rounded-full bg-gray-500"></span>
+                              <div class="flex items-center gap-2 flex-wrap sm:flex">
+                               <p class="text-sm px-3 py-[2px] text-white rounded-2xl font-semibold
+                                         ${card.status === "closed" ? "bg-[#a855f7]" : "bg-[#22b780]"}">
+                                         ${card.status}
+                                         </p>
+                                  <span class="w-[9px] h-[9px] rounded-full bg-gray-500"></span>
                                   <p class="text-sm text-[#64748b]">Opened by ${card.author}</p>
-                                  <span class="w-[8px] h-[8px] rounded-full bg-gray-500"></span>
+                                  <span class="w-[9px] h-[9px] rounded-full bg-gray-500"></span>
                                   <p class="text-sm text-[#64748b]">
                                       ${new Date(card.createdAt).toLocaleDateString()}
                                   </p>
@@ -186,7 +189,7 @@ const displayAllIssuesData = (issues) => {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="allActiveCard(${issue.id})" id="issue-card" class=" h-full shadow-md py-2 flex flex-col rounded-md border-t-[3px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
+        <div onclick="allActiveCard(${issue.id})" id="issue-card" class=" h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
 
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
