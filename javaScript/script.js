@@ -4,6 +4,9 @@ const allIssuesContainer = document.getElementById("issue-all-card");
 const allIssueBtn = document.getElementById("all-btn");
 const openIssueBtn = document.getElementById("open-btn");
 const closedIssueBtn = document.getElementById("close-btn");
+const allIssueActiveCard = document.querySelectorAll(".all-active-card")
+
+
 
 // count issue
 const countIssue = document.getElementById("issue-count");
@@ -54,9 +57,76 @@ function removeSpinner(status) {
     }
 
 }
+// all card  access 
+const allActiveCard = async (id) => {
 
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+    const res = await fetch(url)
+    const data = await res.json()
+    displayShowModal(data.data)
 
+}
 
+// modal function 
+function displayShowModal(card) {
+    console.log(card)
+    const modalContainer = document.getElementById("modal_container")
+    modalContainer.innerHTML = "";
+
+    const div = document.createElement("div")
+    div.innerHTML = `
+                        <div class="space-y-6">
+
+                          <div>
+                              <h2 class="font-semibold text-2xl mb-2">${card.title}</h2>
+              
+                              <div class="flex items-center gap-2">
+                                  <p class="text-sm bg-green-600 px-3 py-[2px] text-white rounded-2xl font-semibold">${card.status}</p>
+                                  <span class="w-[8px] h-[8px] rounded-full bg-gray-500"></span>
+                                  <p class="text-sm text-[#64748b]">Opened by ${card.author}</p>
+                                  <span class="w-[8px] h-[8px] rounded-full bg-gray-500"></span>
+                                  <p class="text-sm text-[#64748b]">
+                                      ${new Date(card.createdAt).toLocaleDateString()}
+                                  </p>
+                              </div>
+                          </div>
+              
+                          <div class="flex flex-wrap gap-3">
+                              ${bugAndHelpLabels(card.labels)}
+                          </div>
+              
+                          <p class="text-[15px] text-[#64748b]">
+                              ${card.description}
+                          </p>
+              
+                          <div class="bg-[#f8fafc] flex p-4 rounded-lg">
+                              <div class="w-[50%] space-y-1">
+                                  <p class="text-[#64748b]">Assignee:</p>
+                                  <p class="font-bold">${card.assignee.toUpperCase()}</p>
+                              </div>
+              
+                              <div class="w-[50%] space-y-2">
+                                  <p class="text-[#64748b]">Priority:</p>
+                                  <p class="text-sm bg-red-600 px-3 py-[2px] text-white rounded-2xl w-fit font-semibold">${card.priority.toUpperCase()}</p>
+                              </div>
+                          </div>
+              
+                          <div class="modal-action">
+                              <form method="dialog">
+                                  <button class="btn border-none btn-primary">Close</button>
+                              </form>
+                          </div>
+              
+                      </div>
+              
+
+                      `;
+
+    modalContainer.appendChild(div)
+
+    document.getElementById("modal_card").showModal()
+
+}
 
 
 
@@ -75,6 +145,7 @@ const bugAndHelpLabels = (labels) => {
 // all issue display show sob data show kora hlo total card
 const displayAllIssuesData = (issues) => {
     removeSpinner(true)
+    console.log(issues)
     allIssuesContainer.innerHTML = "";
 
     countIssue.innerText = issues.length;
@@ -83,7 +154,7 @@ const displayAllIssuesData = (issues) => {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div id="issue-card" class="h-full shadow-md py-2 flex flex-col rounded-md border-t-[3px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
+        <div onclick="allActiveCard(${issue.id})" id="issue-card" class=" h-full shadow-md py-2 flex flex-col rounded-md border-t-[3px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
 
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
