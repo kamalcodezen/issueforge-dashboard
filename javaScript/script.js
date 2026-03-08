@@ -82,7 +82,7 @@ const allActiveCard = async (id) => {
 
 // modal function 
 function displayShowModal(card) {
-    console.log(card)
+    // console.log(card)
     const modalContainer = document.getElementById("modal_container")
     modalContainer.innerHTML = "";
 
