@@ -5,13 +5,14 @@ This project was built using **HTML, TailwindCSS, DaisyUI, and JavaScript**.
 
 ---
 
-## Live Site
+##  Live Site
 
-[](https://kamalcodezen.github.io/issueforge-dashboard/)
+[Add your live site link here.](https://kamalcodezen.github.io/issueforge-dashboard/)
 
-## GitHub Repository
+##  GitHub Repository
 
-[](https://github.com/kamalcodezen/issueforge-dashboard)
+[Add your GitHub repository link here.](https://github.com/kamalcodezen/issueforge-dashboard)
+
 
 ---
 
