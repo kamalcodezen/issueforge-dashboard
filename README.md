@@ -72,6 +72,7 @@ Arrow functions can also return values **implicitly** without writing the `retur
 
 ---
 
+
 ## 5. What are template literals?
 
 Template literals allow us to access **variables, functions, or expressions** inside a string.
