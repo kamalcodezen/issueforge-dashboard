@@ -28,3 +28,11 @@ This project was built using **HTML, TailwindCSS, DaisyUI, and JavaScript**.
 `var` variables are hoisted but their value becomes **undefined** before initialization.  
 `let` variables are also hoisted but if we try to access them before declaration it gives an **error**.  
 `const` works similar to `let`.
+
+---
+
+## 2. What is the spread operator (...)?
+
+The spread operator `...` is used to copy or break values from an object or array.  
+Using the spread operator we can create a new object and change its values.  
+But the **original object does not change**.
