@@ -62,3 +62,19 @@ const evenNumbers = numbers.filter(num => num % 2 === 0);
 numbers.forEach(num => console.log(num));
 ---
 ```
+
+## 4. What is an arrow function?
+
+It uses the `=>` syntax.
+
+Arrow functions can also return values **implicitly** without writing the `return` keyword.
+
+---
+
+## 5. What are template literals?
+
+Template literals allow us to access **variables, functions, or expressions** inside a string.
+
+The expression runs at **runtime**, and the result is placed inside the template string using `${}`.
+
+---
