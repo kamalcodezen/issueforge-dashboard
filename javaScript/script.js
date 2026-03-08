@@ -172,7 +172,7 @@ const bugAndHelpLabels = (labels) => {
             icon = `<i class="fa-solid fa-wand-magic-sparkles"></i>`;
         }
 
-        return `<span class="flex items-center gap-1 font-semibold text-[10px] px-2 py-[2px] rounded-2xl border
+        return `<span class="flex items-center gap-1 font-semibold text-[10px] px-2 py-[2px] rounded-2xl border transition duration-200 group-hover:scale-105 
                       ${label === "bug" ? "bg-red-100 text-red-400" :
                 label === "help wanted" ? "bg-[#fff6d1] text-[#f59e0b]" :
                     "bg-[#defce8] text-[#00a96e]"}"> ${icon} ${label.toUpperCase()} </span>  `;
@@ -198,12 +198,19 @@ const displayAllIssuesData = (issues) => {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="allActiveCard(${issue.id})"  class="issue-card h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"}">
+        <div onclick="allActiveCard(${issue.id})"  class="issue-card h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"} bg-white/80 backdrop-blur-sm
+shadow-sm
+transition-all duration-300 ease-in-out
+hover:-translate-y-1
+hover:shadow-2xl
+hover:bg-white
+hover:ring-1 hover:ring-purple-300
+cursor-pointer">
 
                   <div class="p-[10px]  flex flex-col flex-grow space-y-3 border-b border-gray-300">
                             <!-- icon & media -->
                             <div class="flex justify-between">
-                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full" src="./assets/Closed-Status.png" alt="">`}
+                            ${issue.status === "open" ? `<img class="h-[30px] w-[30px] rounded-full transition duration-300 group-hover:scale-110" src="./assets/Open-Status.png" alt="">` : `<img class="h-[30px] w-[30px] rounded-full transition duration-300 group-hover:scale-110" src="./assets/Closed-Status.png" alt="">`}
                               
                                 <p class="font-semibold text-sm px-4 py-1 rounded-2xl">
                          ${issue.priority === "high" ? `<span class="font-semibold text-sm px-4 py-1 bg-red-100 text-red-400 rounded-2xl"> ${issue.priority.toUpperCase()}</span>`
@@ -215,7 +222,7 @@ const displayAllIssuesData = (issues) => {
                      </div>
                             <!--  Fix Navigation Menu  -->
                               <div class="min-h-[40px]">
-                                  <p class="text-md font-semibold cursor-pointer">${issue.title}</p>
+                                  <p class="text-md font-semibold cursor-pointer transition duration-300 hover:text-purple-600">${issue.title}</p>
                               </div>
                             <!-- description -->
                             <div class="min-h-[40px]">
