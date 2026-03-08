@@ -198,7 +198,7 @@ const displayAllIssuesData = (issues) => {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="allActiveCard(${issue.id})"  class="issue-card h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"} bg-white/80 backdrop-blur-sm
+        <div onclick="allActiveCard(${issue.id})"  class="issue-card  group h-full shadow-md py-2 flex flex-col rounded-md border-t-[4px] ${issue.status === "open" ? "border-[#22b780]" : "border-[#a855f7]"} bg-white/80 backdrop-blur-sm
 shadow-sm
 transition-all duration-300 ease-in-out
 hover:-translate-y-1
