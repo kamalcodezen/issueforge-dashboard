@@ -36,3 +36,29 @@ This project was built using **HTML, TailwindCSS, DaisyUI, and JavaScript**.
 The spread operator `...` is used to copy or break values from an object or array.  
 Using the spread operator we can create a new object and change its values.  
 But the **original object does not change**.
+
+---
+
+## 3. What is the difference between map(), filter(), and forEach()?
+
+`map()` goes through each element of an array and returns a **new array** with updated values after applying a function.
+
+`filter()` checks each value of an array and returns a **new array** that contains only the elements that match a specific condition.
+
+`forEach()` is used to loop through each element of an array and perform an action. It **does not return a new array**.
+
+### Example
+
+```javascript
+const numbers = [1, 2, 3, 4];
+
+// map
+const multiply = numbers.map((num)=> num* 3);
+
+// filter
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+// forEach
+numbers.forEach(num => console.log(num));
+---
+```
